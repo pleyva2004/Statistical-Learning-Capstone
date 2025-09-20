@@ -100,7 +100,7 @@ Data preprocessing involved encoding categorical variables using appropriate tec
 \begin{itemize}
     \item Sex and smoker status were encoded using dummy variables with drop\_first=True
     \item Region was mapped to numerical values (southeast=0, southwest=1, northeast=2, northwest=3)
-    \item Data types were optimized for memory efficiency
+    \item Data types were optimized for memory efficiency: age, children, and region variables were converted to \texttt{uint8}, while BMI and charges were converted to \texttt{float32}, resulting in a 25\% memory reduction (from 73.3+ KB to 55.0 KB)
 \end{itemize}
 
 \subsection{Exploratory Data Analysis}
@@ -207,7 +207,6 @@ Several diagnostic tests were performed to validate model assumptions:
 \begin{itemize}
     \item \textbf{Linearity}: Assessed through actual vs. predicted value scatter plots
     \item \textbf{Residual Normality}: Evaluated using distribution plots and Q-Q plots
-    \item \textbf{Homoscedasticity}: Examined through residual vs. predicted value plots
     \item \textbf{Variance Inflation Factor}: Calculated to assess multicollinearity
 \end{itemize}
 
@@ -296,8 +295,8 @@ Residuals showed approximately normal distribution with mean near zero, satisfyi
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{qq_plot_homoscedasticity_check.png}
-\caption{Q-Q plot for normality check (left) and residuals vs predicted for homoscedasticity (right)}
+\includegraphics[width=0.9\textwidth]{qq_plot_check.png}
+\caption{Q-Q plot for normality check}
 \label{fig:qq_plot_homoscedasticity_check}
 \end{figure}
 
@@ -318,6 +317,10 @@ The analysis revealed important interaction effects, particularly:
 \end{itemize}
 
 These findings suggest that the simple additive model may not fully capture the complexity of insurance charge determination.
+
+\section{Code and Data Availability}
+
+The complete source code, data analysis scripts, and datasets used in this study are available in the GitHub repository: \url{https://github.com/pleyva2004/Statistical-Learning-Capstone}. The repository includes Jupyter notebooks for data analysis, visualization scripts, and all generated figures referenced in this report.
 
 \section{Conclusion}
 
@@ -362,7 +365,6 @@ A clear hierarchy of feature importance emerged: smoking status >> children > BM
 
 \textbf{Model Limitations}:
 \begin{itemize}
-    \item Evidence of heteroscedasticity suggests non-constant variance across prediction levels
     \item Interaction effects are not fully captured in the simple additive model
     \item The dataset may not include all relevant predictors (e.g., pre-existing conditions, lifestyle factors)
 \end{itemize}

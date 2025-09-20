@@ -649,6 +649,11 @@ INPUT ./violin_plot_charges_vs_region_by_sex.png
 INPUT violin_plot_charges_vs_region_by_sex.png
 INPUT ./violin_plot_charges_vs_region_by_sex.png
 INPUT ./violin_plot_charges_vs_region_by_sex.png
+INPUT ./scatter_plots_charges_vs_age_bmi.png
+INPUT ./scatter_plots_charges_vs_age_bmi.png
+INPUT scatter_plots_charges_vs_age_bmi.png
+INPUT ./scatter_plots_charges_vs_age_bmi.png
+INPUT ./scatter_plots_charges_vs_age_bmi.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -708,7 +713,6 @@ INPUT ./qq_plot_check.png
 INPUT ./scatter_plots_charges_vs_age_bmi.png
 INPUT ./scatter_plots_charges_vs_age_bmi.png
 INPUT scatter_plots_charges_vs_age_bmi.png
-INPUT ./scatter_plots_charges_vs_age_bmi.png
 INPUT ./scatter_plots_charges_vs_age_bmi.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcbx1200.tfm
 INPUT insurance_analysis_report.aux

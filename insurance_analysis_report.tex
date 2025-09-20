@@ -108,7 +108,7 @@ Data preprocessing involved encoding categorical variables using appropriate tec
 The exploratory analysis revealed several key insights:
 
 \subsubsection{Distribution Analysis}
-Insurance charges exhibited a right-skewed distribution with mean charges significantly higher than median charges. Log transformation revealed an underlying normal distribution, suggesting the presence of multiplicative effects in the data.
+Insurance charges exhibited a right-skewed distribution with mean charges significantly higher than median charges. The data appears to be normally distributed but right-skewed, as evidenced by the log transformation which reveals an underlying normal distribution. This suggests the presence of multiplicative effects in the data, where certain factors may compound to create extremely high charges for specific subgroups.
 
 \begin{figure}[H]
 \centering
@@ -118,7 +118,7 @@ Insurance charges exhibited a right-skewed distribution with mean charges signif
 \end{figure}
 
 \subsubsection{Correlation Analysis}
-Initial correlation analysis showed no strong linear correlations between predictor variables, indicating minimal multicollinearity concerns and that features cannot be expressed as linear combinations of each other.
+The correlation heatmap reveals no clear linear correlations between any features in the dataset, indicating minimal multicollinearity concerns. This is a positive finding as it means that features cannot be expressed as linear combinations of each other, suggesting that each predictor variable contributes unique information to the model. This independence between features supports the validity of using multiple linear regression without concerns about redundant predictors.
 
 \begin{figure}[H]
 \centering
@@ -127,10 +127,11 @@ Initial correlation analysis showed no strong linear correlations between predic
 \label{fig:correlation_heatmap}
 \end{figure}
 
-
 \newpage
 
-\textbf{Feature-Target Relationships}:
+\subsubsection{Feature-Target Relationship Analysis}
+
+\textbf{Gender and Smoking Status Analysis}:
 
 \begin{figure}[H]
 \centering
@@ -139,6 +140,12 @@ Initial correlation analysis showed no strong linear correlations between predic
 \label{fig:violin_plots_sex_smoker}
 \end{figure}
 
+\textbf{Male vs Female}: The violin plots reveal that the spread and width of charge distributions for males and females are remarkably similar. Both groups are roughly centered around the same value, indicating that gender has minimal impact on insurance charges. This finding suggests that insurance pricing in this dataset is largely gender-neutral.
+
+\textbf{Smoking Status}: The contrast between smokers and non-smokers is dramatic. Non-smokers exhibit a violin plot with a lower center and smaller width, while smokers show not only a wider distribution but are centered at much higher costs. This stark difference implies that smoking status has an extremely high impact on insurance charges, making it likely the most significant predictor in the dataset.
+
+\textbf{BMI Relationship Analysis}:
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{charges_vs_bmi.png}
@@ -146,14 +153,9 @@ Initial correlation analysis showed no strong linear correlations between predic
 \label{fig:charges_vs_bmi}
 \end{figure}
 
-\begin{itemize}
-    \item \textbf{Smoking Status}: Violin plots revealed a dramatic difference between smokers and non-smokers, with smokers showing both higher central tendency and greater variance in charges.
-    \item \textbf{BMI}: Scatter plot analysis revealed a complex relationship where the impact of BMI on charges is amplified for smokers, particularly at higher BMI values (>30).
-    \item \textbf{Age}: Showed a positive relationship with charges, with the effect varying by smoking status, revealing three distinct charge levels.
-    \item \textbf{Sex}: Minimal difference in charge distributions between males and females.
-    \item \textbf{Children}: Similar charge distributions across different numbers of children.
-    \item \textbf{Region}: No significant differences in charge distributions across geographical regions.
-\end{itemize}
+The BMI vs charges scatter plot reveals very noisy data but shows a small positive relationship between BMI and charges. However, this relationship appears to be more complex than a simple linear association, with smoking status acting as a significant modifier of the BMI effect.
+
+\textbf{Children Analysis}:
 
 \begin{figure}[H]
 \centering
@@ -176,12 +178,44 @@ Initial correlation analysis showed no strong linear correlations between predic
 \label{fig:violin_plot_charges_vs_children_by_sex}
 \end{figure}
 
+The analysis of charges by number of children reveals that the median charge is mostly centered around the same value regardless of family size. While families with 1, 2, or 3 children show higher spread in charges compared to those with 0, 4, or 5 children, this may be attributed to the distribution of family sizes in the dataset rather than a true effect of children count.
+
+The violin plots demonstrate that charge distributions across different numbers of children are remarkably similar. The only noticeably smaller distribution is for families with 5 children, but this is likely due to the smaller sample size of such families in the dataset. This analysis suggests that the number of children is not a high-impact feature on insurance charges.
+
+\textbf{Regional Analysis}:
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{violin_plot_charges_vs_region_by_sex.png}
 \caption{Violin plots of charges vs region by sex}
 \label{fig:violin_plot_charges_vs_region_by_sex}
 \end{figure}
+
+The violin plots for each geographical region appear extremely similar in both width and stretch, and are centered near the same value. This similarity across regions suggests that, like gender, geographical region does not have a high impact on insurance charges. This finding indicates that the insurance pricing strategy may be standardized across different regions.
+
+\subsubsection{Interaction Effects Analysis}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{scatter_plots_charges_vs_age_bmi.png}
+\caption{Scatter plots showing interactions between age/BMI and smoking status on charges}
+\label{fig:scatter_plots_charges_vs_age_bmi}
+\end{figure}
+
+\textbf{Age, Smoking, and Charges Interaction}:
+The age vs charges scatter plot reveals three distinct levels of charges:
+\begin{enumerate}
+    \item \textbf{First level}: Non-smokers with relatively healthy profiles - representing baseline charges for average healthy individuals
+    \item \textbf{Second level}: Either smokers with lower risk profiles or non-smokers with other risk factors - suggesting moderate risk pricing
+    \item \textbf{Third level}: High-risk smokers - representing premium charges for the highest risk category
+\end{enumerate}
+
+This three-tier structure suggests hidden complexity in the data that may not be fully captured by simple additive models. Factors such as activity level (inactive non-smokers potentially falling into the second level) or smoking intensity (heavy smokers vs. light smokers) may create correlations between supposedly distinct groups.
+
+\textbf{BMI and Smoking Interaction}:
+The BMI vs charges plot provides crucial insight into the third tier observed in the age analysis. At lower BMI values (20-30), there is a noticeable but moderate disparity between smokers and non-smokers. However, at higher BMI values (30+), this disparity grows significantly, creating a substantial gap between non-smokers and smokers with high BMI.
+
+This interaction effect suggests that the highest charge category consists primarily of high BMI smokers, representing individuals at the greatest risk for health issues. The multiplicative effect of smoking and high BMI creates a compounding risk profile that justifies premium pricing.
 
 \subsection{Model Development}
 
@@ -280,8 +314,8 @@ The Ridge regression analysis demonstrated how regularization affects coefficien
 
 \subsection{Model Diagnostics Results}
 
-\subsubsection{Linearity}
-The actual vs. predicted values plot showed a strong linear relationship, confirming the appropriateness of linear modeling.
+\subsubsection{Linearity and Residual Analysis}
+The model diagnostics confirm several important assumptions about the linear regression model:
 
 \begin{figure}[H]
 \centering
@@ -290,15 +324,18 @@ The actual vs. predicted values plot showed a strong linear relationship, confir
 \label{fig:linearity_check_plots}
 \end{figure}
 
-\subsubsection{Residual Analysis}
-Residuals showed approximately normal distribution with mean near zero, satisfying model assumptions.
+\textbf{Linearity Check}: The actual vs. predicted values plot demonstrates a strong linear relationship, confirming the appropriateness of linear modeling for this dataset. The points cluster closely around the diagonal line, indicating that the model successfully captures the underlying linear relationships between predictors and the target variable.
+
+\textbf{Residual Analysis}: The residual distribution shows approximately normal distribution with mean near zero, satisfying key model assumptions. The symmetric distribution of residuals around zero indicates that the model is unbiased and that the linear assumptions are appropriate for this data.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{qq_plot_check.png}
-\caption{Q-Q plot for normality check}
+\caption{Q-Q plot for normality check of residuals}
 \label{fig:qq_plot_homoscedasticity_check}
 \end{figure}
+
+The Q-Q plot further confirms the normality of residuals, with points following closely along the theoretical normal line. This validates the assumption that errors are normally distributed, supporting the reliability of confidence intervals and hypothesis tests for the model coefficients.
 
 \subsubsection{Interaction Effects}
 

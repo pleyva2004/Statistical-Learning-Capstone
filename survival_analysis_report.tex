@@ -56,7 +56,7 @@ for the course of Statistical Learning Capstone}
 \end{titlepage}
 
 \begin{abstract}
-This study presents a comprehensive survival analysis of breast cancer patients using the Haberman dataset. We employed non-parametric Kaplan-Meier estimation, log-rank tests, and Cox proportional hazards regression to investigate factors affecting 5-year survival rates. The analysis reveals that the number of positive axillary nodes detected is the most significant predictor of survival outcomes (p < 0.001), with a hazard ratio of 2.854 per additional node. Age and operation year were not found to be statistically significant predictors. The overall 5-year survival rate was 73.5\%, with median survival time exceeding the observation period. These findings provide valuable insights for clinical prognosis and treatment planning in breast cancer patients.
+This study presents a comprehensive survival analysis of breast cancer patients using the Haberman dataset. We employed non-parametric Kaplan-Meier estimation, log-rank tests, and Cox proportional hazards regression to investigate factors affecting 5-year survival rates. The analysis reveals that the number of positive axillary nodes detected is the most significant predictor of survival outcomes (p < 0.001), with a hazard ratio of 1.048 per additional node. Age and operation year were not found to be statistically significant predictors. The overall 5-year survival rate was 73.5\%, with median survival time exceeding the observation period. These findings provide valuable insights for clinical prognosis and treatment planning in breast cancer patients.
 \end{abstract}
 
 \section{Introduction to the Study}
@@ -78,7 +78,7 @@ The dataset contains four key variables for each patient:
     \item \textbf{Age}: Patient age at time of operation (range: 30-83 years)
     \item \textbf{Operation\_year}: Year of operation (1958-1969)
     \item \textbf{Nb\_pos\_detected}: Number of positive axillary nodes detected (0-52)
-    \item \textbf{Survival}: 5-year survival status (1 = survived ≥5 years, 2 = died within 5 years)
+    \item \textbf{Survival}: 5-year survival status (1 = survived $\geq$5 years, 0 = died within 5 years)
 \end{itemize}
 
 The importance of this analysis extends beyond academic interest. Understanding which factors most significantly impact survival can inform clinical decision-making, resource allocation in healthcare systems, and patient counseling. The number of positive axillary nodes, in particular, has been established as a crucial staging criterion in breast cancer, making this analysis highly relevant for contemporary oncological practice.
@@ -156,12 +156,13 @@ The data quality assessment revealed several important characteristics:
 
 \subsubsection{Univariate Analysis}
 
-Summary statistics for numerical variables are presented in Table \ref{tab:summary_stats}.
+Summary statistics for numerical variables are presented in Table 1.
 
 \begin{table}[H]
 \centering
 \caption{Summary Statistics for Numerical Variables (n=306)}
 \label{tab:summary_stats}
+\small
 \begin{tabular}{lrrrrrrrr}
 \toprule
 \textbf{Variable} & \textbf{Mean} & \textbf{Median} & \textbf{Mode} & \textbf{Std Dev} & \textbf{Skewness} & \textbf{Kurtosis} & \textbf{Min} & \textbf{Max} \\
@@ -195,7 +196,7 @@ The distributional characteristics reveal important insights:
 The survival status distribution exhibits significant class imbalance:
 
 \begin{itemize}
-    \item \textbf{Survived ≥5 years}: 225 patients (73.5\%)
+    \item \textbf{Survived $\geq$5 years}: 225 patients (73.5\%)
     \item \textbf{Died within 5 years}: 81 patients (26.5\%)
     \item \textbf{Imbalance Ratio}: 2.78:1
 \end{itemize}
@@ -304,7 +305,7 @@ Categorical variables were created for stratified analysis:
 
 \begin{itemize}
     \item \textbf{Age Groups}: <45 (n=89), 45-55 (n=101), 55-65 (n=78), >65 (n=38) years
-    \item \textbf{Node Categories}: 0 nodes (n=136), 1-3 nodes (n=81), 4-9 nodes (n=46), ≥10 nodes (n=43)
+    \item \textbf{Node Categories}: 0 nodes (n=136), 1-3 nodes (n=81), 4-9 nodes (n=46), $\geq$10 nodes (n=43)
     \item \textbf{Operation Periods}: 1958-61 (n=140), 1962-65 (n=117), 1966-69 (n=49)
 \end{itemize}
 
@@ -372,7 +373,7 @@ Stratification by age groups and node categories provides insights into prognost
 \label{fig:km_stratified}
 \end{figure}
 
-Visual inspection suggests that node category has a more pronounced effect on survival than age group, with patients having ≥10 nodes showing substantially worse prognosis.
+Visual inspection suggests that node category has a more pronounced effect on survival than age group, with patients having $\geq$10 nodes showing substantially worse prognosis.
 
 \subsection{Log-Rank Test}
 
@@ -426,7 +427,7 @@ Table \ref{tab:logrank_results} summarizes the log-rank test results:
 \label{tab:logrank_results}
 \begin{tabular}{lrrrr}
 \toprule
-\textbf{Comparison} & \(\boldsymbol{\chi^2}\) & **df** & **P-value** & **Significance** \\
+\textbf{Comparison} & \(\boldsymbol{\chi^2}\) & \textbf{df} & \textbf{P-value} & \textbf{Significance} \\
 \midrule
 \multicolumn{5}{l}{\textit{Age Groups}} \\
 Omnibus test & 3.012 & 3 & 0.390 & Not significant \\
@@ -443,22 +444,22 @@ Omnibus test & 36.894 & 3 & <0.001 & Highly significant \\
 \cmidrule(l){2-5}
 0 vs 1-3 & -- & -- & 0.055 & Marginal \\
 0 vs 4-9 & -- & -- & 0.0002 & Significant \\
-0 vs ≥10 & -- & -- & <0.0001 & Highly significant \\
+0 vs $\geq$10 & -- & -- & <0.0001 & Highly significant \\
 1-3 vs 4-9 & -- & -- & 0.071 & Not significant \\
-1-3 vs ≥10 & -- & -- & 0.0003 & Significant \\
-4-9 vs ≥10 & -- & -- & 0.131 & Not significant \\
+1-3 vs $\geq$10 & -- & -- & 0.0003 & Significant \\
+4-9 vs $\geq$10 & -- & -- & 0.131 & Not significant \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Key findings:
 \begin{itemize}
-    \item \textbf{Age groups}: No statistically significant differences in survival across age strata (χ²=3.01, p=0.390). This suggests that within this dataset, patient age does not significantly affect survival.
+    \item \textbf{Age groups}: No statistically significant differences in survival across age strata ($\chi^2$=3.01, p=0.390). This suggests that within this dataset, patient age does not significantly affect survival.
     
-    \item \textbf{Node categories}: Highly significant differences in survival (χ²=36.89, p<0.001). Pairwise comparisons reveal:
+    \item \textbf{Node categories}: Highly significant differences in survival ($\chi^2$=36.89, p<0.001). Pairwise comparisons reveal:
     \begin{itemize}
-        \item Patients with 0 nodes vs. ≥10 nodes: p<0.0001 (highly significant)
-        \item Patients with 1-3 nodes vs. ≥10 nodes: p=0.0003 (significant)
+        \item Patients with 0 nodes vs. $\geq$10 nodes: p<0.0001 (highly significant)
+        \item Patients with 1-3 nodes vs. $\geq$10 nodes: p=0.0003 (significant)
         \item Patients with 0 vs. 4-9 nodes: p=0.0002 (significant)
         \item Boundary between 0 and 1-3 nodes: p=0.055 (marginal significance)
     \end{itemize}
@@ -475,7 +476,7 @@ The Cox proportional hazards model is a semi-parametric regression method used t
 The Cox model specifies that the hazard function \(h(t|X)\) is:
 
 \begin{equation}
-h(t|X) = h_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p)
+h(t|X) = h_0(t) e^{\beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p}
 \label{eq:cox_model}
 \end{equation}
 
@@ -490,7 +491,7 @@ where:
 The key assumption is \textit{proportional hazards}: the hazard ratio between any two individuals is constant over time:
 
 \begin{equation}
-\frac{h_i(t|X_i)}{h_j(t|X_j)} = \exp[\boldsymbol{\beta}^T(\mathbf{X}_i - \mathbf{X}_j)]
+\frac{h_i(t|X_i)}{h_j(t|X_j)} = e^{\boldsymbol{\beta}^T(\mathbf{X}_i - \mathbf{X}_j)}
 \label{eq:proportional_hazards}
 \end{equation}
 
@@ -499,7 +500,7 @@ The key assumption is \textit{proportional hazards}: the hazard ratio between an
 Since the baseline hazard \(h_0(t)\) is not specified, Cox developed a partial likelihood approach that eliminates the baseline hazard:
 
 \begin{equation}
-L(\boldsymbol{\beta}) = \prod_{i=1}^{n} \left[\frac{\exp(\boldsymbol{\beta}^T \mathbf{X}_i)}{\sum_{j \in R(t_i)} \exp(\boldsymbol{\beta}^T \mathbf{X}_j)}\right]^{\delta_i}
+L(\boldsymbol{\beta}) = \prod_{i=1}^{n} \left[\frac{e^{\boldsymbol{\beta}^T \mathbf{X}_i}}{\sum_{j \in R(t_i)} e^{\boldsymbol{\beta}^T \mathbf{X}_j}}\right]^{\delta_i}
 \label{eq:partial_likelihood}
 \end{equation}
 
@@ -513,7 +514,7 @@ where:
 The log-likelihood is:
 
 \begin{equation}
-\ell(\boldsymbol{\beta}) = \sum_{i=1}^{n} \delta_i \left[\boldsymbol{\beta}^T \mathbf{X}_i - \log\left(\sum_{j \in R(t_i)} \exp(\boldsymbol{\beta}^T \mathbf{X}_j)\right)\right]
+\ell(\boldsymbol{\beta}) = \sum_{i=1}^{n} \delta_i \left[\boldsymbol{\beta}^T \mathbf{X}_i - \log\left(\sum_{j \in R(t_i)} e^{\boldsymbol{\beta}^T \mathbf{X}_j}\right)\right]
 \label{eq:log_likelihood}
 \end{equation}
 
@@ -522,7 +523,7 @@ The log-likelihood is:
 The hazard ratio (HR) for a continuous covariate is:
 
 \begin{equation}
-\text{HR} = \exp(\beta) = e^{\beta}
+\text{HR} = e^{\beta}
 \label{eq:hazard_ratio}
 \end{equation}
 
@@ -531,7 +532,7 @@ The HR represents the multiplicative change in hazard for each unit increase in 
 A 95\% confidence interval for the hazard ratio is:
 
 \begin{equation}
-\text{HR}_{95\% \text{ CI}} = \exp(\beta \pm 1.96 \cdot \text{SE}(\beta))
+\text{HR}_{95\% \text{ CI}} = e^{\beta \pm 1.96 \cdot \text{SE}(\beta)}
 \label{eq:hr_ci}
 \end{equation}
 
@@ -545,20 +546,20 @@ Table \ref{tab:cox_univariate} presents the univariate Cox regression results fo
 \label{tab:cox_univariate}
 \begin{tabular}{lrrrr}
 \toprule
-\textbf{Covariate} & \textbf{HR} & \textbf{95\% CI Lower} & \textbf{95\% CI Upper} & **P-value** \\
+\textbf{Covariate} & \textbf{HR} & \textbf{95\% CI Lower} & \textbf{95\% CI Upper} & \textbf{P-value} \\
 \midrule
-Age (per year) & 2.751 & 0.992 & 1.032 & 0.246 \\
-Operation\_year & 2.702 & 0.930 & 1.063 & 0.863 \\
-Nb\_pos\_detected (per node) & 2.854 & 1.030 & 1.068 & <0.001 \\
+Age (per year) & 1.012 & 0.992 & 1.032 & 0.246 \\
+Operation\_year & 0.996 & 0.930 & 1.063 & 0.863 \\
+Nb\_pos\_detected (per node) & 1.048 & 1.030 & 1.068 & <0.001 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Note: The reported hazard ratios appear abnormally high due to data scaling issues in the Cox model implementation. However, the significance levels and relative magnitudes are preserved.
+Learning Note: Hazard ratios shown. The initial analysis incorrectly applied exponential transformation twice - the lifelines library already returns exponentiated hazard ratios, requiring no additional transformation.
 
 \paragraph{Interpretation}
 \begin{itemize}
-    \item \textbf{Nb\_pos\_detected}: Highly significant predictor (p<0.001). Each additional positive node increases the hazard of death. The 95\% confidence interval [1.03, 1.07] excludes 1.0, confirming statistical significance.
+    \item \textbf{Nb\_pos\_detected}: Highly significant predictor (p<0.001). Each additional positive node increases the hazard of death by approximately 4.8\%. The 95\% confidence interval [1.03, 1.07] excludes 1.0, confirming statistical significance.
     
     \item \textbf{Age}: Not statistically significant (p=0.246). The confidence interval [0.992, 1.032] includes 1.0, suggesting no significant association between age and survival in this cohort.
     
@@ -576,7 +577,7 @@ The comprehensive data quality assessment yielded the following key findings:
     
     \item \textbf{Duplicates}: Seventeen observations (5.6\%) are duplicates. These were retained as they represent distinct patients with identical characteristics rather than data entry errors.
     
-    \item \textbf{Outliers}: Forty patients (13.1\%) had extreme values for positive nodes (≥11 nodes). These are clinically meaningful outliers representing severe nodal involvement rather than data errors.
+    \item \textbf{Outliers}: Forty patients (13.1\%) had extreme values for positive nodes ($\geq$11 nodes). These are clinically meaningful outliers representing severe nodal involvement rather than data errors.
     
     \item \textbf{Data Integrity}: All value ranges are clinically plausible:
     \begin{itemize}
@@ -593,7 +594,7 @@ Summary statistics reveal important distributional characteristics:
 \begin{itemize}
     \item \textbf{Age}: Approximately normally distributed with mean 52.5 years (SD: 10.8). The distribution is slightly skewed right (skewness: 0.147).
     
-    \item \textbf{Positive Nodes}: Highly right-skewed distribution with median of 1.0 node but mean of 4.0 nodes. Most patients have minimal nodal involvement (136 patients with 0 nodes), while a minority exhibit extensive involvement (43 patients with ≥10 nodes).
+    \item \textbf{Positive Nodes}: Highly right-skewed distribution with median of 1.0 node but mean of 4.0 nodes. Most patients have minimal nodal involvement (136 patients with 0 nodes), while a minority exhibit extensive involvement (43 patients with $\geq$10 nodes).
     
     \item \textbf{Survival Outcome}: Strong class imbalance with 73.5\% survival rate, indicating that most patients achieved 5-year survival in this historical cohort.
 \end{itemize}
@@ -621,7 +622,7 @@ The Kaplan-Meier survival analysis provides detailed insights into survival patt
         \item Patients with 0 nodes exhibit highest survival
         \item Patients with 1-3 nodes show moderate survival
         \item Patients with 4-9 nodes show lower survival
-        \item Patients with ≥10 nodes exhibit poorest survival
+        \item Patients with $\geq$10 nodes exhibit poorest survival
     \end{itemize}
 \end{itemize}
 
@@ -630,14 +631,14 @@ The Kaplan-Meier survival analysis provides detailed insights into survival patt
 Statistical hypothesis testing confirms the visual observations:
 
 \begin{enumerate}
-    \item \textbf{Age groups}: No statistically significant differences (χ²=3.01, df=3, p=0.390). This finding suggests that within this specific patient cohort treated in the 1958-1969 period, age was not a significant determinant of survival outcome.
+    \item \textbf{Age groups}: No statistically significant differences ($\chi^2$=3.01, df=3, p=0.390). This finding suggests that within this specific patient cohort treated in the 1958-1969 period, age was not a significant determinant of survival outcome.
     
-    \item \textbf{Node categories}: Highly significant differences (χ²=36.89, df=3, p<0.001). The omnibus test definitively establishes that survival differs across nodal involvement groups.
+    \item \textbf{Node categories}: Highly significant differences ($\chi^2$=36.89, df=3, p<0.001). The omnibus test definitively establishes that survival differs across nodal involvement groups.
     
     \item \textbf{Pairwise comparisons for nodes}:
     \begin{itemize}
-        \item 0 vs. ≥10 nodes: p<0.0001 (highly significant)
-        \item 1-3 vs. ≥10 nodes: p=0.0003 (significant)
+        \item 0 vs. $\geq$10 nodes: p<0.0001 (highly significant)
+        \item 1-3 vs. $\geq$10 nodes: p=0.0003 (significant)
         \item 0 vs. 4-9 nodes: p=0.0002 (significant)
         \item Boundary between 0 and 1-3 nodes: p=0.055 (marginal significance)
     \end{itemize}
@@ -655,7 +656,7 @@ The Cox proportional hazards models quantify the relationship between covariates
 \label{tab:cox_summary}
 \begin{tabular}{lrrrl}
 \toprule
-\textbf{Covariate} & \textbf{HR} & \textbf{95\% CI} & **P-value** & \textbf{Significance} \\
+\textbf{Covariate} & \textbf{HR} & \textbf{95\% CI} & \textbf{P-value} & \textbf{Significance} \\
 \midrule
 Nb\_pos\_detected (per node) & 1.048 & [1.030, 1.068] & <0.001 & Highly significant \\
 Age (per year) & 1.012 & [0.992, 1.032] & 0.246 & Not significant \\
@@ -669,7 +670,7 @@ Note: Corrected hazard ratios shown. The original output displayed scaling artif
 \paragraph{Key Findings from Cox Analysis}
 
 \begin{enumerate}
-    \item \textbf{Positive Nodes}: The most powerful and statistically significant predictor. Each additional positive node increases the hazard of death by approximately 4.8\% (HR ≈ 1.05 per node).
+    \item \textbf{Positive Nodes}: The most powerful and statistically significant predictor. Each additional positive node increases the hazard of death by approximately 4.8\% (HR $\approx$ 1.05 per node).
     
     \item \textbf{Age}: No statistically significant effect (p=0.246). The hazard ratio of approximately 1.01 per year indicates a negligible age effect in this cohort.
     
@@ -686,7 +687,7 @@ Comparisons between survived and died groups reveal key patterns:
 \label{tab:group_comparison}
 \begin{tabular}{lrrr}
 \toprule
-\textbf{Variable} & \textbf{Survived (n=225)} & \textbf{Died (n=81)} & **Difference** \\
+\textbf{Variable} & \textbf{Survived (n=225)} & \textbf{Died (n=81)} & \textbf{Difference} \\
 \midrule
 Age (mean ± SD) & 52.0 ± 11.0 & 53.7 ± 10.2 & 1.7 years \\
 Operation\_year (mean ± SD) & 62.9 ± 3.2 & 62.8 ± 3.3 & 0.1 years \\
@@ -712,7 +713,7 @@ The analysis unequivocally establishes the number of positive axillary lymph nod
 \begin{enumerate}
     \item \textbf{Bivariate analysis} revealed a 2.7-fold difference in mean positive nodes between survivors (2.8 nodes) and non-survivors (7.5 nodes).
     
-    \item \textbf{Log-rank tests} demonstrated highly statistically significant differences in survival curves across node categories (χ²=36.89, p<0.001), with pairwise comparisons showing significant differences between patients with minimal (0-1 nodes) versus substantial (≥10 nodes) nodal involvement.
+    \item \textbf{Log-rank tests} demonstrated highly statistically significant differences in survival curves across node categories ($\chi^2$=36.89, p<0.001), with pairwise comparisons showing significant differences between patients with minimal (0-1 nodes) versus substantial ($\geq$10 nodes) nodal involvement.
     
     \item \textbf{Cox regression} identified positive node count as the only statistically significant predictor in univariate models (p<0.001), with each additional node associated with increased hazard of death.
 \end{enumerate}
@@ -749,8 +750,8 @@ The strong association between nodal involvement and survival underscores the im
 \begin{itemize}
     \item Prioritize thorough nodal staging during surgery
     \item Consider nodal status in treatment decision-making
-    \item Use nodal categories (0, 1-3, 4-9, ≥10 nodes) as prognostic indicators
-    \item Recognize that patients with ≥10 positive nodes require aggressive treatment approaches
+    \item Use nodal categories (0, 1-3, 4-9, $\geq$10 nodes) as prognostic indicators
+    \item Recognize that patients with $\geq$10 positive nodes require aggressive treatment approaches
 \end{itemize}
 
 \subsubsection{For Patient Counseling}
@@ -805,13 +806,19 @@ Several directions for extending this analysis could provide additional insights
 
 \subsection{Final Remarks}
 
-This survival analysis successfully demonstrates the application of modern statistical methods—Kaplan-Meier estimation, log-rank testing, and Cox regression—to real-world clinical data. The findings provide empirical validation of nodal status as a critical prognostic factor while revealing insights that may inform clinical practice.
+\subsubsection{Methodological Contribution}
 
-The analysis illustrates the power of survival analysis techniques for addressing censored time-to-event outcomes, which are ubiquitous in clinical research. The combination of descriptive statistics, non-parametric estimation, and semi-parametric regression provides a comprehensive framework for understanding survival patterns.
+This survival analysis successfully demonstrates the application of modern statistical methods—Kaplan-Meier estimation, log-rank testing, and Cox regression—to real-world clinical data. The analysis illustrates the power of survival analysis techniques for addressing censored time-to-event outcomes, which are ubiquitous in clinical research. The combination of descriptive statistics, non-parametric estimation, and semi-parametric regression provides a comprehensive framework for understanding survival patterns.
 
-From a broader perspective, this study contributes to the body of evidence supporting the prognostic significance of axillary lymph node involvement in breast cancer. The statistical rigor and methodological approach employed here serve as a template for future survival analyses in oncological research.
+The statistical rigor and methodological approach employed here serve as a template for future survival analyses in oncological research.
+
+\subsubsection{Clinical Implications}
+
+The findings provide empirical validation of nodal status as a critical prognostic factor while revealing insights that may inform clinical practice. From a broader perspective, this study contributes to the body of evidence supporting the prognostic significance of axillary lymph node involvement in breast cancer.
 
 The findings emphasize the importance of thorough clinical staging and accurate assessment of disease burden, while also highlighting limitations inherent in historical datasets. As treatment advances continue to improve breast cancer outcomes, comparative analyses between historical and contemporary cohorts become increasingly valuable for quantifying progress in oncological care.
+
+\subsubsection{Summary}
 
 In summary, this comprehensive survival analysis has successfully identified nodal involvement as the dominant prognostic factor while demonstrating the methodological approaches appropriate for analyzing censored survival data. The results have clinical relevance for prognostic assessment and contribute to the statistical learning literature through the application of advanced survival analysis techniques.
 

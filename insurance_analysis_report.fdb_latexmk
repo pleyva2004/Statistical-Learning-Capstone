@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1758390426 "/home/pleyva/Statistical-Learning-Capstone/insurance_analysis_report.tex" "insurance_analysis_report.pdf" "insurance_analysis_report" 1758390430
+["pdflatex"] 1761590920 "/home/pleyva/Statistical-Learning-Capstone/insurance_analysis_report.tex" "insurance_analysis_report.pdf" "insurance_analysis_report" 1761590924
   "/etc/texmf/web2c/texmf.cnf" 1758385371 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk" 1758385912 28952 573276f09fe264800ac47a36a8e35914 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk" 1758385911 31928 e5f5eeeb99b851cc73181b934195ed16 ""
@@ -11,7 +11,7 @@
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk" 1758389524 24132 ad072a0fbb886b46d14e0122ad09bcc2 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1200.600pk" 1758385910 15056 c9e4a5da5058436d14f3f0e37bbfe00d ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1758385910 14040 d44345a9cdb17b65cfb66a76f02814cc ""
-  "/home/pleyva/Statistical-Learning-Capstone/insurance_analysis_report.tex" 1758390424 22860 30d67397b60b49fdf0398e212c8b5781 ""
+  "/home/pleyva/Statistical-Learning-Capstone/insurance_analysis_report.tex" 1759852161 23821 00be694ad2cd60a45936f46a4f212f47 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -129,9 +129,9 @@
   "charges_vs_bmi.png" 1758389973 764588 f391b961a81a32c805713ab7c23acf30 ""
   "correlation_heatmap.png" 1758389971 104574 f257778fce15ca6c169f38fe4e22ad33 ""
   "feature_importance_weights.png" 1758389979 180474 3eb01b20a292b6795b1e76484bde8ab9 ""
-  "insurance_analysis_report.aux" 1758390430 9634 5c20ae50c0f418bf22742b5e7a87726d "pdflatex"
-  "insurance_analysis_report.out" 1758390430 5588 479e355a3117a4197e694fc0c7e2de77 "pdflatex"
-  "insurance_analysis_report.tex" 1758390424 22860 30d67397b60b49fdf0398e212c8b5781 ""
+  "insurance_analysis_report.aux" 1761590924 9758 50233a1875fa522412c8f5b490b53aab "pdflatex"
+  "insurance_analysis_report.out" 1761590924 5765 2dd1e292f4cd14033142a0a18dd6efb0 "pdflatex"
+  "insurance_analysis_report.tex" 1759852161 23821 00be694ad2cd60a45936f46a4f212f47 ""
   "linearity_check_plots.png" 1758389978 327358 b01cd920224e0caa840058d3c217dd7e ""
   "qq_plot_check.png" 1758389978 180111 41824dee21c0383bc8dd8c3784a54ccc ""
   "ridge_regression_coefficients.png" 1758389979 257923 ce09e1092ea83000456ec2d0c1335842 ""

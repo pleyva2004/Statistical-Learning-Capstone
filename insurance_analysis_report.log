@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.9.20)  20 SEP 2025 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.9.20)  27 OCT 2025 14:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -374,51 +374,51 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<charges_distribution.png, id=156, 732.8178pt x 302.5704pt>
+<charges_distribution.png, id=160, 732.8178pt x 302.5704pt>
 File: charges_distribution.png Graphic file (type png)
 <use charges_distribution.png>
 Package pdftex.def Info: charges_distribution.png  used on input line 115.
 (pdftex.def)             Requested size: 407.66833pt x 168.32098pt.
  [2 <./charges_distribution.png>]
-<correlation_heatmap.png, id=166, 449.0376pt x 314.6154pt>
+<correlation_heatmap.png, id=170, 449.0376pt x 314.6154pt>
 File: correlation_heatmap.png Graphic file (type png)
 <use correlation_heatmap.png>
 Package pdftex.def Info: correlation_heatmap.png  used on input line 125.
 (pdftex.def)             Requested size: 362.37569pt x 253.89615pt.
  [3 <./correlation_heatmap.png>]
-<violin_plots_sex_smoker.png, id=173, 858.3267pt x 400.6167pt>
+<violin_plots_sex_smoker.png, id=177, 858.3267pt x 400.6167pt>
 File: violin_plots_sex_smoker.png Graphic file (type png)
 <use violin_plots_sex_smoker.png>
 Package pdftex.def Info: violin_plots_sex_smoker.png  used on input line 138.
 (pdftex.def)             Requested size: 407.66833pt x 190.27657pt.
-<charges_vs_bmi.png, id=174, 850.6179pt x 438.438pt>
+<charges_vs_bmi.png, id=178, 850.6179pt x 438.438pt>
 File: charges_vs_bmi.png Graphic file (type png)
 <use charges_vs_bmi.png>
 Package pdftex.def Info: charges_vs_bmi.png  used on input line 151.
 (pdftex.def)             Requested size: 362.37569pt x 186.78525pt.
  [4 <./violin_plots_sex_smoker.png> <./charges_vs_bmi.png>]
-<boxplot_charges_vs_children.png, id=183, 858.3267pt x 400.6167pt>
+<boxplot_charges_vs_children.png, id=188, 858.3267pt x 400.6167pt>
 File: boxplot_charges_vs_children.png Graphic file (type png)
 <use boxplot_charges_vs_children.png>
 Package pdftex.def Info: boxplot_charges_vs_children.png  used on input line 162.
 (pdftex.def)             Requested size: 407.66833pt x 190.27657pt.
-<charges_distribution_by_children.png, id=184, 1439.3775pt x 271.0125pt>
+<charges_distribution_by_children.png, id=189, 1439.3775pt x 271.0125pt>
 File: charges_distribution_by_children.png Graphic file (type png)
 <use charges_distribution_by_children.png>
 Package pdftex.def Info: charges_distribution_by_children.png  used on input line 169.
 (pdftex.def)             Requested size: 407.66833pt x 76.75552pt.
-<violin_plot_charges_vs_children_by_sex.png, id=185, 866.5173pt x 400.6167pt>
+<violin_plot_charges_vs_children_by_sex.png, id=190, 866.5173pt x 400.6167pt>
 File: violin_plot_charges_vs_children_by_sex.png Graphic file (type png)
 <use violin_plot_charges_vs_children_by_sex.png>
 Package pdftex.def Info: violin_plot_charges_vs_children_by_sex.png  used on input line 176.
 (pdftex.def)             Requested size: 407.66833pt x 188.47937pt.
  [5 <./boxplot_charges_vs_children.png> <./charges_distribution_by_children.png> <./violin_plot_charges_vs_children_by_sex.png>]
-<violin_plot_charges_vs_region_by_sex.png, id=197, 858.3267pt x 400.6167pt>
+<violin_plot_charges_vs_region_by_sex.png, id=201, 858.3267pt x 400.6167pt>
 File: violin_plot_charges_vs_region_by_sex.png Graphic file (type png)
 <use violin_plot_charges_vs_region_by_sex.png>
 Package pdftex.def Info: violin_plot_charges_vs_region_by_sex.png  used on input line 189.
 (pdftex.def)             Requested size: 407.66833pt x 190.27657pt.
-<scatter_plots_charges_vs_age_bmi.png, id=198, 858.3267pt x 400.6167pt>
+<scatter_plots_charges_vs_age_bmi.png, id=202, 858.3267pt x 400.6167pt>
 File: scatter_plots_charges_vs_age_bmi.png Graphic file (type png)
 <use scatter_plots_charges_vs_age_bmi.png>
 Package pdftex.def Info: scatter_plots_charges_vs_age_bmi.png  used on input line 200.
@@ -432,24 +432,24 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 224.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [7 <./scatter_plots_charges_vs_age_bmi.png>] [8]
-<feature_importance_weights.png, id=228, 706.8006pt x 416.9979pt>
+<feature_importance_weights.png, id=232, 706.8006pt x 416.9979pt>
 File: feature_importance_weights.png Graphic file (type png)
 <use feature_importance_weights.png>
 Package pdftex.def Info: feature_importance_weights.png  used on input line 283.
 (pdftex.def)             Requested size: 362.37569pt x 213.79869pt.
  [9 <./feature_importance_weights.png>]
-<ridge_regression_coefficients.png, id=236, 970.3452pt x 623.2083pt>
+<ridge_regression_coefficients.png, id=240, 970.3452pt x 623.2083pt>
 File: ridge_regression_coefficients.png Graphic file (type png)
 <use ridge_regression_coefficients.png>
 Package pdftex.def Info: ridge_regression_coefficients.png  used on input line 304.
 (pdftex.def)             Requested size: 407.66833pt x 261.83128pt.
-<linearity_check_plots.png, id=237, 986.9673pt x 418.9251pt>
+<linearity_check_plots.png, id=241, 986.9673pt x 418.9251pt>
 File: linearity_check_plots.png Graphic file (type png)
 <use linearity_check_plots.png>
 Package pdftex.def Info: linearity_check_plots.png  used on input line 322.
 (pdftex.def)             Requested size: 407.66833pt x 173.03885pt.
  [10 <./ridge_regression_coefficients.png>]
-<qq_plot_check.png, id=244, 754.4988pt x 418.9251pt>
+<qq_plot_check.png, id=248, 754.4988pt x 418.9251pt>
 File: qq_plot_check.png Graphic file (type png)
 <use qq_plot_check.png>
 Package pdftex.def Info: qq_plot_check.png  used on input line 333.
@@ -468,21 +468,21 @@ Overfull \hbox (71.32234pt too wide) in paragraph at lines 360--361
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `insurance_analysis_report.out' has not changed.
-(rerunfilecheck)             Checksum: 479E355A3117A4197E694FC0C7E2DE77;5588.
+(rerunfilecheck)             Checksum: 2DD1E292F4CD14033142A0A18DD6EFB0;5765.
  ) 
 Here is how much of TeX's memory you used:
- 10789 strings out of 480247
- 166542 string characters out of 5896151
- 454800 words of memory out of 5000000
- 28493 multiletter control sequences out of 15000+600000
+ 10791 strings out of 480247
+ 166562 string characters out of 5896151
+ 454795 words of memory out of 5000000
+ 28494 multiletter control sequences out of 15000+600000
  485374 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,8n,63p,665b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1200.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on insurance_analysis_report.pdf (15 pages, 3419066 bytes).
+Output written on insurance_analysis_report.pdf (15 pages, 3421038 bytes).
 PDF statistics:
- 690 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 330 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 698 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 338 words of extra memory for PDF output out of 10000 (max. 10000000)
 

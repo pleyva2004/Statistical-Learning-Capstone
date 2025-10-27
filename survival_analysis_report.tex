@@ -700,6 +700,7 @@ Nb\_pos\_detected (median [IQR]) & 0.0 [0.0, 3.0] & 4.0 [1.0, 11.0] & 4.0 nodes 
 
 The three-fold difference in mean positive nodes (2.8 vs. 7.5) between survivors and non-survivors demonstrates the strong association between nodal involvement and survival outcome.
 
+
 \section{Conclusion}
 
 This comprehensive survival analysis of breast cancer patients from the Haberman dataset has yielded several important findings with both statistical and clinical significance.
@@ -822,7 +823,115 @@ The findings emphasize the importance of thorough clinical staging and accurate 
 
 In summary, this comprehensive survival analysis has successfully identified nodal involvement as the dominant prognostic factor while demonstrating the methodological approaches appropriate for analyzing censored survival data. The results have clinical relevance for prognostic assessment and contribute to the statistical learning literature through the application of advanced survival analysis techniques.
 
+\section{Feedback and Response to Presentation}
+
+Based on feedback received during the presentation, the following clarifications and considerations are provided:
+
+\subsection{Model Specification}
+
+\subsubsection{Operation Year as an Independent Variable}
+
+A critical consideration raised during the presentation pertains to the treatment of operation year as an independent variable in the Cox regression model. Operation year should not be considered a truly independent prognostic factor, as it reflects temporal trends in treatment protocols, surgical techniques, and patient selection criteria rather than inherent patient characteristics affecting survival.
+
+However, operation year serves an important analytical purpose as a temporal control variable. Its inclusion in the model allows us to test for temporal trends in survival outcomes across the 1958-1969 period, which proved to be non-significant (p=0.863). This finding indicates that survival outcomes remained relatively stable across the study period, providing important context for interpreting the results.
+
+\subsubsection{Final Model Selection}
+
+Following the univariate Cox regression analysis, which identified \textit{Nb\_pos\_detected} as the only statistically significant predictor (p<0.001), the final model is:
+
+\paragraph{Final Univariate Cox Model}
+
+\begin{equation}
+h(t|\text{Nb\_pos\_detected}) = h_0(t) e^{\beta \cdot \text{Nb\_pos\_detected}}
+\label{eq:final_model}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item \(h(t|\text{Nb\_pos\_detected})\) = hazard function at time \(t\) given nodal count
+    \item \(h_0(t)\) = baseline hazard function (unspecified)
+    \item \(\beta = 0.047\) = regression coefficient for number of positive nodes
+    \item HR = \(e^{0.047} = 1.048\) = hazard ratio (4.8\% increase in hazard per additional node)
+\end{itemize}
+
+The final model parameters are summarized in Table \ref{tab:final_model}.
+
+\begin{table}[H]
+\centering
+\caption{Final Univariate Cox Model for Breast Cancer Survival}
+\label{tab:final_model}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Variable} & \textbf{Coefficient ($\beta$)} & \textbf{HR} & \textbf{95\% CI} & \textbf{P-value} \\
+\midrule
+Nb\_pos\_detected & 0.047 & 1.048 & [1.030, 1.068] & <0.001 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Statistical Inference and Interpretation}
+
+\subsubsection{Model Justification}
+
+The selection of a univariate model is statistically justified and methodologically sound for several reasons:
+
+\begin{enumerate}
+    \item \textbf{Significance Criteria}: Age and operation year both failed to meet statistical significance thresholds (p=0.246 and p=0.863, respectively) in univariate models, providing no evidence to warrant their inclusion.
+    
+    \item \textbf{Principle of Parsimony}: Occam's Razor favors the simpler model that achieves comparable explanatory power. Including non-significant variables would not improve model fit while introducing unnecessary complexity.
+    
+    \item \textbf{Multicollinearity Consideration}: While correlation analysis (Table \ref{tab:correlations}) revealed minimal inter-feature correlations, the non-significant variables provide no additional prognostic information beyond nodal count.
+    
+    \item \textbf{Clinical Replicability}: A single-predictor model with strong statistical significance (p<0.001) and interpretable effect size (HR=1.048) facilitates clinical application and replication across different patient populations.
+\end{enumerate}
+
+\subsubsection{Empirical Evidence Supporting the Final Model}
+
+The final univariate model is supported by multiple lines of converging evidence:
+
+\begin{itemize}
+    \item \textbf{Descriptive Statistics}: Three-fold difference in mean nodal count between survivors and non-survivors (2.8 vs. 7.5 nodes)
+    
+    \item \textbf{Log-Rank Tests}: Highly significant differences in survival curves across node categories (\(\chi^2\)=36.89, p<0.001)
+    
+    \item \textbf{Cox Regression}: Statistically significant hazard ratio (HR=1.048, p<0.001) with narrow 95\% confidence interval [1.030, 1.068] that excludes the null value of 1.0
+    
+    \item \textbf{Biological Plausibility}: Aligns with established oncological knowledge that nodal involvement is a cornerstone of cancer staging
+\end{itemize}
+
+\subsubsection{Model Transparency and Acceptability}
+
+To enhance the acceptability and interpretability of the statistical inference, the model demonstrates:
+
+\begin{enumerate}
+    \item \textbf{Reproducibility}: All statistical analyses are fully documented with code available in the GitHub repository (Section \ref{sec:code_availability})
+    
+    \item \textbf{Effect Size Quantification}: The hazard ratio of 1.048 per node provides a concrete, interpretable measure of prognostic impact
+    
+    \item \textbf{Uncertainty Quantification}: 95\% confidence intervals explicitly account for sampling variability and provide a range of plausible values
+    
+    \item \textbf{Multiple Testing Approach}: The analysis employed univariate models for each predictor, allowing for transparent assessment of individual effects before considering multivariate approaches
+    
+    \item \textbf{Clinical Applicability}: The simple model structure facilitates straightforward clinical application—clinicians can calculate individual patient risk by multiplying their nodal count by the hazard ratio coefficient
+\end{enumerate}
+
+\subsection{Multivariate Model Consideration}
+
+While the presentation focused on univariate models to establish individual predictor effects, a natural extension would be to construct a multivariate Cox model incorporating all covariates simultaneously:
+
+\begin{equation}
+h(t|X) = h_0(t) e^{\beta_1 \cdot \text{Age} + \beta_2 \cdot \text{Operation\_year} + \beta_3 \cdot \text{Nb\_pos\_detected}}
+\label{eq:multivariate_model}
+\end{equation}
+
+However, given the non-significance of Age and Operation\_year in univariate analysis, and the lack of evidence for confounding or interaction effects, the multivariate model would likely yield similar conclusions with nodal count remaining the sole significant predictor. The univariate approach adopted here provides clearer, more interpretable results while maintaining statistical rigor.
+
+\subsection{Summary of Feedback Response}
+
+In summary, the final model—a univariate Cox regression with positive node count as the sole predictor—is statistically justified, clinically interpretable, and supported by multiple converging lines of evidence. The approach of starting with univariate models before considering multivariate extensions represents sound statistical practice, particularly when identifying which covariates warrant inclusion in more complex models. The non-inclusion of age and operation year as independent prognostic factors is scientifically appropriate given their lack of statistical significance in this cohort.
+
 \section{Code and Data Availability}
+\label{sec:code_availability}
 
 The complete source code, data analysis scripts, generated plots, and datasets used in this study are available in the GitHub repository: \url{https://github.com/pleyva2004/Statistical-Learning-Capstone}. The repository includes:
 \begin{itemize}
@@ -831,5 +940,7 @@ The complete source code, data analysis scripts, generated plots, and datasets u
     \item All visualization PNG files referenced in this report
     \item The Haberman breast cancer survival dataset
 \end{itemize}
+
+
 
 \end{document}

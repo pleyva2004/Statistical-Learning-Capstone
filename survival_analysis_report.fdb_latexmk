@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1761596485 "/home/pleyva/Statistical-Learning-Capstone/survival_analysis_report.tex" "survival_analysis_report.pdf" "survival_analysis_report" 1761596488
+["pdflatex"] 1761603292 "/home/pleyva/Statistical-Learning-Capstone/survival_analysis_report.tex" "survival_analysis_report.pdf" "survival_analysis_report" 1761603295
   "/etc/texmf/web2c/texmf.cnf" 1758385371 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk" 1758385912 28952 573276f09fe264800ac47a36a8e35914 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk" 1758385911 31928 e5f5eeeb99b851cc73181b934195ed16 ""
@@ -12,7 +12,7 @@
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk" 1761585673 39096 677a8db67cb4674433d9e8d6269c95b5 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk" 1758389524 24132 ad072a0fbb886b46d14e0122ad09bcc2 ""
   "/home/pleyva/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1758385910 14040 d44345a9cdb17b65cfb66a76f02814cc ""
-  "/home/pleyva/Statistical-Learning-Capstone/survival_analysis_report.tex" 1761596486 42013 174393e0333dbc2f1c38a33eadf082a0 ""
+  "/home/pleyva/Statistical-Learning-Capstone/survival_analysis_report.tex" 1761603288 48944 c88ce15ad98b870e5c790bb3fa93b32c ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -136,9 +136,9 @@
   "kaplan_meier_stratified.png" 1761585529 231266 8ce2999499711740bd53dd78178eaff3 ""
   "outlier_detection_boxplots.png" 1761585523 130504 73c978f4dbf9ee7916251473fda9b021 ""
   "pairplot_survival_status.png" 1761585528 1060379 7aef4a1eeef92cb92d4782f29d88683c ""
-  "survival_analysis_report.aux" 1761596488 14079 119f4f2eb937dd628d4caacfef4d5df6 "pdflatex"
-  "survival_analysis_report.out" 1761596488 9723 ad867155b58ad41a8b61c70124db829e "pdflatex"
-  "survival_analysis_report.tex" 1761596486 42013 174393e0333dbc2f1c38a33eadf082a0 ""
+  "survival_analysis_report.aux" 1761603295 16152 a95e8c15479399b0aaedc47fc38bd47f "pdflatex"
+  "survival_analysis_report.out" 1761603295 12016 da8e4ffaba74cbcf70f5fa70d25953ba "pdflatex"
+  "survival_analysis_report.tex" 1761603288 48944 c88ce15ad98b870e5c790bb3fa93b32c ""
   "survival_status_distribution.png" 1761585525 119285 d1cf30e2aefbf1733759a56c0ed91ebf ""
   "univariate_distributions.png" 1761585524 412259 f016aef166b61e6f77fb24a31df8e6d4 ""
   (generated)
